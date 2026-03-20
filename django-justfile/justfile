@@ -1,0 +1,25 @@
+# django uv just
+
+rs:
+  uv run python manage.py runserver
+
+csu:
+  uv run python manage.py createsuperuser
+
+test:
+  uv run python manage.py test
+
+mm:
+  uv run python manage.py makemigrations
+
+m:
+  uv run python manage.py migrate
+
+black:
+  uvx black .
+
+
+format: black
+
+sync-activity:
+  uv lock --upgrade-package activity && uv sync
