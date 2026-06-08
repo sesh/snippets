@@ -24,5 +24,4 @@ RUN useradd --create-home appuser && chown -R appuser:appuser /app
 USER appuser
 
 EXPOSE 8000
-
-CMD ["uv", "run", "gunicorn", "utils.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD uv run python manage.py migrate --noinput && uv run gunicorn ready_app.wsgi:application --bind 0.0.0.0:8000
